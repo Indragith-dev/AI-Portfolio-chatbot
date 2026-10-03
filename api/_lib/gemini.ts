@@ -33,33 +33,66 @@ type StreamChunk = {
   promptFeedback?: { blockReason?: string };
 };
 
-export class GeminiError extends Error {}
+export class GeminiError extends Error {
+  /** True when Gemini was overloaded or out of quota, not a real failure. */
+  busy: boolean;
+  constructor(message: string, busy = false) {
+    super(message);
+    this.busy = busy;
+  }
+}
+
+/**
+ * Models to try in order. Each has its own free-tier quota, so when the
+ * primary is overloaded (503) or out of quota (429) the fallback still answers.
+ */
+export function modelChain(): string[] {
+  const primary = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+  const fallback = process.env.GEMINI_FALLBACK_MODEL ?? "gemini-3.5-flash-lite";
+  return fallback && fallback !== primary ? [primary, fallback] : [primary];
+}
 
 /**
  * Yields every non-thought part the model streams back, in order.
  * Text arrives in many small parts; function calls arrive whole.
+ *
+ * Tries each of `models` until one accepts the request and reports which one
+ * via `onModel`. Later turns of the same conversation should pass only that
+ * model, because function-call signatures are tied to the model that made them.
  */
-export async function* streamGemini(req: StreamRequest): AsyncGenerator<GeminiPart> {
+export async function* streamGemini(
+  req: StreamRequest & { models: string[]; onModel?: (model: string) => void },
+): AsyncGenerator<GeminiPart> {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) throw new GeminiError("GEMINI_API_KEY is not set");
-  const model = process.env.GEMINI_MODEL || "gemini-2.5-flash";
 
-  const res = await fetch(`${API_BASE}/${model}:streamGenerateContent?alt=sse`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
-    signal: req.signal,
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: req.systemInstruction }] },
-      contents: req.contents,
-      tools: [{ functionDeclarations: req.functionDeclarations }],
-      generationConfig: { temperature: 0.3, maxOutputTokens: 2048 },
-    }),
-  });
+  let res: Response | null = null;
+  for (const model of req.models) {
+    res = await fetch(`${API_BASE}/${model}:streamGenerateContent?alt=sse`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-goog-api-key": apiKey },
+      signal: req.signal,
+      body: JSON.stringify({
+        systemInstruction: { parts: [{ text: req.systemInstruction }] },
+        contents: req.contents,
+        tools: [{ functionDeclarations: req.functionDeclarations }],
+        generationConfig: { maxOutputTokens: 2048 },
+      }),
+    });
 
-  if (!res.ok || !res.body) {
+    if (res.ok && res.body) {
+      req.onModel?.(model);
+      break;
+    }
+
     const detail = await res.text().catch(() => "");
-    throw new GeminiError(`Gemini responded ${res.status}: ${detail.slice(0, 500)}`);
+    const busy = res.status === 429 || res.status === 503;
+    console.warn(`Gemini ${model} responded ${res.status}: ${detail.slice(0, 300)}`);
+    if (!busy) throw new GeminiError(`Gemini ${model} responded ${res.status}`);
+    res = null;
   }
+
+  if (!res?.body) throw new GeminiError("Every Gemini model is busy", true);
 
   const reader = res.body.getReader();
   const decoder = new TextDecoder();

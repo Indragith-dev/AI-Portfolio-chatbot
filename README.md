@@ -51,7 +51,7 @@ Everything AIRA knows is in `api/_lib/profile.ts`, taken from the resume and the
 2. Run locally: `npm install`, then `npx vercel dev` (serves on http://localhost:3000 by default; use `npx vercel dev --listen 3001` if the portfolio is already on 3000).
 3. Deploy: import this folder as a new Vercel project named `aira-api` and add the same variables under Project Settings, Environment Variables.
 
-`GEMINI_MODEL` defaults to `gemini-2.5-flash`. If Google retires it, set a new model name in Vercel; no code change needed.
+`GEMINI_MODEL` defaults to `gemini-3.8-flash`. When it is overloaded or out of free quota, AIRA retries on `GEMINI_FALLBACK_MODEL` (default `gemini-3.5-flash-lite`), which has its own quota. If Google retires either, set a new name in Vercel; no code change needed. The free tier is only a few requests per minute per model, so enable billing in Google AI Studio if the site gets real traffic.
 
 ## Quick test
 

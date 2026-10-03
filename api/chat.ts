@@ -12,6 +12,8 @@ import { clientIp, corsHeaders, json, preflight, readJsonPost } from "./_lib/htt
 import { rateLimit } from "./_lib/rate-limit.js";
 import { PROJECT_IDS, SYSTEM_PROMPT } from "./_lib/profile.js";
 import {
+  GeminiError,
+  modelChain,
   streamGemini,
   type FunctionDeclaration,
   type GeminiContent,
@@ -101,7 +103,10 @@ export async function POST(request: Request): Promise<Response> {
         console.error("Chat failed", err);
         send({
           type: "error",
-          message: "AIRA is having trouble answering right now. Please try again in a moment.",
+          message:
+            err instanceof GeminiError && err.busy
+              ? "AIRA is getting a lot of questions right now. Please try again in a minute."
+              : "AIRA is having trouble answering right now. Please try again in a moment.",
         });
       } finally {
         try {
@@ -129,6 +134,7 @@ async function runConversation(
   signal: AbortSignal,
 ): Promise<void> {
   let sentText = false;
+  let models = modelChain();
 
   for (let round = 0; round < MAX_ROUNDS; round++) {
     const modelParts: GeminiPart[] = [];
@@ -139,6 +145,8 @@ async function runConversation(
       contents,
       functionDeclarations: FUNCTIONS,
       signal,
+      models,
+      onModel: (model) => (models = [model]),
     })) {
       // Kept verbatim (including thoughtSignature) so the follow-up turn is valid.
       modelParts.push(part);
