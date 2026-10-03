@@ -1,0 +1,18 @@
+{
+  "name": "aira-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Backend for AIRA, the portfolio assistant, plus the contact form.",
+  "scripts": {
+    "dev": "vercel dev",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  }
+}
