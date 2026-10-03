@@ -106,22 +106,32 @@ export async function* streamGemini(
     // SSE events are separated by a blank line.
     const events = buffer.split(/\r?\n\r?\n/);
     buffer = events.pop() ?? "";
+    for (const event of events) yield* parseEvent(event);
+  }
 
-    for (const event of events) {
-      const data = event
-        .split(/\r?\n/)
-        .filter((l) => l.startsWith("data:"))
-        .map((l) => l.slice(5).trim())
-        .join("");
-      if (!data) continue;
+  // The last event may arrive without a trailing blank line.
+  buffer += decoder.decode();
+  if (buffer.trim()) yield* parseEvent(buffer);
+}
 
-      const chunk = JSON.parse(data) as StreamChunk;
-      if (chunk.promptFeedback?.blockReason) {
-        throw new GeminiError(`Prompt blocked: ${chunk.promptFeedback.blockReason}`);
-      }
-      for (const part of chunk.candidates?.[0]?.content?.parts ?? []) {
-        if (!part.thought) yield part;
-      }
-    }
+function* parseEvent(event: string): Generator<GeminiPart> {
+  const data = event
+    .split(/\r?\n/)
+    .filter((l) => l.startsWith("data:"))
+    .map((l) => l.slice(5).trim())
+    .join("");
+  if (!data) return;
+
+  const chunk = JSON.parse(data) as StreamChunk;
+  if (chunk.promptFeedback?.blockReason) {
+    throw new GeminiError(`Prompt blocked: ${chunk.promptFeedback.blockReason}`);
+  }
+
+  const candidate = chunk.candidates?.[0];
+  for (const part of candidate?.content?.parts ?? []) {
+    if (!part.thought) yield part;
+  }
+  if (candidate?.finishReason && candidate.finishReason !== "STOP") {
+    console.warn(`Gemini finished early: ${candidate.finishReason}`);
   }
 }
