@@ -26,12 +26,19 @@ export async function POST(request: Request): Promise<Response> {
   const body = (parsed.body ?? {}) as Record<string, unknown>;
   const field = (key: string) => (typeof body[key] === "string" ? (body[key] as string).trim() : "");
 
-  // Bots fill every field. Pretend it worked so they don't adapt.
-  if (field("website")) return json({ ok: true }, 200, origin);
-
   const name = field("name");
   const email = field("email");
   const message = field("message");
+  const honeypot = field("website");
+
+  // Bots fill every field; pretend it worked so they don't adapt. Browser
+  // autofill can also drop the visitor's own email or name in there, which is
+  // a real person, so that still goes through.
+  const autofilled = [email, name].some((v) => v && honeypot.toLowerCase() === v.toLowerCase());
+  if (honeypot && !autofilled) {
+    console.warn(`Honeypot filled, message dropped (website="${honeypot.slice(0, 100)}", email="${email}")`);
+    return json({ ok: true }, 200, origin);
+  }
 
   if (!name || name.length > 100) {
     return json({ error: "Please enter your name (up to 100 characters)." }, 400, origin);
