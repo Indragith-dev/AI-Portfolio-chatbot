@@ -5,6 +5,7 @@
  * Streams NDJSON, one object per line:
  *   { type: "text", text }
  *   { type: "action", name: "focus_project" | "highlight_skill", args }
+ *     focus_project ids: dms, isop, hrms, grn, axiom
  *   { type: "error", message }
  */
 
@@ -30,7 +31,7 @@ const MAX_ROUNDS = 3;
 const FUNCTIONS: FunctionDeclaration[] = [
   {
     name: "focus_project",
-    description: "Move the portfolio's 3D camera to one of Indran's projects.",
+    description: "Scroll the portfolio page to one of Indran's projects.",
     parameters: {
       type: "object",
       properties: {
@@ -41,7 +42,7 @@ const FUNCTIONS: FunctionDeclaration[] = [
   },
   {
     name: "highlight_skill",
-    description: "Highlight one of Indran's skills or technologies in the 3D scene.",
+    description: "Highlight one of Indran's skills or technologies on the portfolio page.",
     parameters: {
       type: "object",
       properties: {
@@ -173,7 +174,7 @@ async function runConversation(
         parts: calls.map((c) => ({
           functionResponse: {
             name: c.name,
-            response: { result: toAction(c) ? "Done, the scene was updated." : "Unknown target, nothing changed." },
+            response: { result: toAction(c) ? "Done, the page now shows it." : "Unknown target, nothing changed on the page." },
           },
         })),
       },
