@@ -18,8 +18,8 @@ Response: `application/x-ndjson`, one object per line:
 | Line | Meaning |
 | --- | --- |
 | `{ "type": "text", "text": "..." }` | Append to the assistant message |
-| `{ "type": "action", "name": "focus_project", "args": { "id": "grn" \| "axiom" } }` | Move the 3D camera |
-| `{ "type": "action", "name": "highlight_skill", "args": { "name": "React" } }` | Highlight a skill |
+| `{ "type": "action", "name": "focus_project", "args": { "id": "dms" \| "isop" \| "hrms" \| "grn" \| "axiom" } }` | Scroll to that project |
+| `{ "type": "action", "name": "highlight_skill", "args": { "name": "React" } }` | Highlight that skill |
 | `{ "type": "error", "message": "..." }` | Show to the user |
 
 Errors before streaming starts are JSON `{ "error": "..." }` with status 400, 403, 413 or 429.
