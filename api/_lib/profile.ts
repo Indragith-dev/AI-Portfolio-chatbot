@@ -26,7 +26,7 @@ AVAILABILITY: Open to work.
 
 AT A GLANCE
 - 25+ projects delivered
-- 6 enterprise clients
+- 7 enterprise clients
 - 20+ technologies used
 - High Achiever Award winner at MAV-S Innovations (2025)
 
