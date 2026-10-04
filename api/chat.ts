@@ -5,7 +5,7 @@
  * Streams NDJSON, one object per line:
  *   { type: "text", text }
  *   { type: "action", name: "focus_project" | "highlight_skill" | "show_section", args }
- *     focus_project ids: dms, isop, hrms, grn, axiom
+ *     focus_project ids: aira, dms, isop, axiom, hrms
  *   { type: "error", message }
  */
 

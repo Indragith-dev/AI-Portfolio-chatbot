@@ -18,7 +18,7 @@ Response: `application/x-ndjson`, one object per line:
 | Line | Meaning |
 | --- | --- |
 | `{ "type": "text", "text": "..." }` | Append to the assistant message |
-| `{ "type": "action", "name": "focus_project", "args": { "id": "aira" \| "dms" \| "isop" \| "axiom" \| "grn" \| "hrms" } }` | Scroll to that project |
+| `{ "type": "action", "name": "focus_project", "args": { "id": "aira" \| "dms" \| "isop" \| "axiom" \| "hrms" } }` | Scroll to that project |
 | `{ "type": "action", "name": "highlight_skill", "args": { "name": "React" } }` | Highlight that skill |
 | `{ "type": "action", "name": "show_section", "args": { "section": "projects" \| "awards" \| "linkedin" \| "about" \| "stats" \| "testimonials" \| "contact" } }` | Scroll to that section |
 | `{ "type": "error", "message": "..." }` | Show to the user |
@@ -59,5 +59,5 @@ Everything AIRA knows is in `api/_lib/profile.ts`, taken from the resume and the
 ```sh
 curl -N http://localhost:3001/api/chat \
   -H "Origin: http://localhost:3000" -H "Content-Type: application/json" \
-  -d '{"messages":[{"role":"user","content":"Show me the GRN project"}]}'
+  -d '{"messages":[{"role":"user","content":"Show me the DMS project"}]}'
 ```

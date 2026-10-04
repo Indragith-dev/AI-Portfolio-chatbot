@@ -8,7 +8,7 @@
  */
 
 /** Ids the frontend maps to project cards for the focus_project action. */
-export const PROJECT_IDS = ["aira", "dms", "isop", "axiom", "grn", "hrms"] as const;
+export const PROJECT_IDS = ["aira", "dms", "isop", "axiom", "hrms"] as const;
 export type ProjectId = (typeof PROJECT_IDS)[number];
 
 /** Section ids on the portfolio page for the show_section action. */
@@ -41,7 +41,7 @@ CONTACT
 
 PORTFOLIO SECTIONS (in page order)
 - Home: intro, headline numbers and resume download
-- Projects [section: projects]: AIRA (first), DMS, ISOP, AXIOM, GRN and Employee Portal & HRMS, each with a "View details" page; AIRA also has "View code"
+- Projects [section: projects]: AIRA (first), DMS, ISOP, AXIOM and Employee Portal & HRMS, each with a "View details" page; AIRA also has "View code"
 - About [section: about]
 - Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
 - LinkedIn [section: linkedin]: his recent LinkedIn posts, with photos
@@ -81,8 +81,6 @@ Apart from AIRA, these are work projects built at or for companies, so there is 
 
 - AIRA, AI Portfolio Assistant [id: aira] (TypeScript, Google Gemini, Vercel Functions, Next.js, React, Motion, Tailwind CSS, Resend, 2026, open source)
   You are this project. He built it end to end as a personal project: a serverless API on Vercel that streams Gemini replies, answers only from a curated profile with a fixed reply for off-topic questions and prompt-injection attempts, uses function calling to scroll the page to projects, skills and sections, falls back to a second Gemini model when the first is busy, rate-limits per visitor, and delivers the contact form by email through Resend. The chat is an animated robot that peeks in, waves, thinks, talks and walks, with sound effects. Code: https://github.com/Indragith-dev/AI-Portfolio-chatbot
-- GRN Invoice Management System [id: grn] (.NET, React, PostgreSQL, Clean Architecture, 2026, in progress)
-  Being built independently. Pulls invoices from email, parses and analyzes them, cross-verifies the data against Oracle, and routes verified invoices through an approval workflow to payment.
 - AXIOM [id: axiom] (.NET, React, PostgreSQL, 2026, in progress)
   Being built independently. A subscription-based platform with a modular monolith backend that showcases the company's product suite (ISOP, MyHR and others), with SSO sign-in and tenant-based setup for multi-product access.
 - Document Management System (DMS) [id: dms] (React, TypeScript, ASP.NET Core, EF Core, SQL Server, SharePoint SPFx, Hangfire, 2024)
