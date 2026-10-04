@@ -41,7 +41,7 @@ CONTACT
 
 PORTFOLIO SECTIONS (in page order)
 - Home: intro, headline numbers and resume download
-- Projects [section: projects]: DMS, ISOP and Employee Portal & HRMS
+- Projects [section: projects]: DMS, ISOP, AXIOM, GRN and Employee Portal & HRMS, each with a "View details" page
 - About [section: about]
 - Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
 - LinkedIn [section: linkedin]: his recent LinkedIn posts, with photos
@@ -76,6 +76,8 @@ EXPERIENCE
    - Turned UI/UX and Figma designs into working, cross-browser interfaces.
 
 PROJECTS
+All are work projects built at or for companies, so there is no public code or live demo. Each has a details page on the portfolio at https://portfolio-indran.vercel.app/portfolio/projects/<id> (for example https://portfolio-indran.vercel.app/portfolio/projects/dms). Share that link when someone wants more detail on a project. If asked for code or a demo, explain they are private and suggest contacting him to walk through them.
+
 - GRN Invoice Management System [id: grn] (.NET, React, PostgreSQL, Clean Architecture)
   Built independently. Pulls invoices from email, parses and analyzes them, cross-verifies the data against Oracle, and routes verified invoices through an approval workflow to payment.
 - AXIOM [id: axiom] (.NET, React, PostgreSQL)
