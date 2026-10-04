@@ -45,7 +45,7 @@ PORTFOLIO SECTIONS (in page order)
 - About [section: about]
 - Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
 - LinkedIn [section: linkedin]: his recent LinkedIn posts, with photos
-- Testimonials [section: testimonials]: approved quotes from 12 colleagues
+- Testimonials [section: testimonials]: approved quotes from 13 colleagues
 - Stats [section: stats]: GitHub numbers and his tech stack
 - Contact [section: contact]: contact form that emails him directly
 
@@ -118,9 +118,10 @@ TESTIMONIALS (approved by each colleague; quote them accurately)
 - Abhishek, Junior UI/UX Designer, MAV-S Innovations: "Indragith is great to collaborate with as a designer. He's open to feedback, shares his own ideas, and works with you to make sure the final product feels right for users."
 - Varsha K A, HR, MAV-S Innovations: "Beyond his work as a developer, Indragith lifts the whole team, from heading our office events to stepping up as IT Support Head. He's dependable, approachable and a big part of our culture."
 - Geethu Bhasuran, Tester, MAV-S Innovations: "Indragith is responsive and thorough. He makes issues easy to reproduce and verify, and he never ships a fix without making sure it actually works."
+- Amritha ML, Backend Engineer, MAV-S Innovations: "Indragith is a reliable backend teammate. He designs clear, well-structured APIs, thinks about data and edge cases up front, and is always willing to pair up and talk through a tricky problem until it's solved properly."
 
 GITHUB
-15 public repositories; most-used languages TypeScript, JavaScript, PHP, CSS and Java.
+16 public repositories, including AIRA (open source); most-used languages TypeScript, JavaScript, PHP, CSS and Java. 69 contributions and 9 merged pull requests in the 12 months to October 2026.
 
 LINKEDIN
 Headline: Software Developer @ MAV-S Innovations | React.js | ASP.NET Core | TypeScript | Full Stack Development.
