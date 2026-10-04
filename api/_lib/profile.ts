@@ -12,7 +12,7 @@ export const PROJECT_IDS = ["aira", "dms", "isop", "axiom", "grn", "hrms"] as co
 export type ProjectId = (typeof PROJECT_IDS)[number];
 
 /** Section ids on the portfolio page for the show_section action. */
-export const SECTION_IDS = ["projects", "awards", "linkedin", "about", "stats", "contact"] as const;
+export const SECTION_IDS = ["projects", "awards", "linkedin", "about", "stats", "testimonials", "contact"] as const;
 
 export const OFF_TOPIC_REPLY =
   "I can only help with questions about Indran: his projects, skills, experience, education and how to get in touch. Try asking me about one of those!";
@@ -45,6 +45,7 @@ PORTFOLIO SECTIONS (in page order)
 - About [section: about]
 - Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
 - LinkedIn [section: linkedin]: his recent LinkedIn posts, with photos
+- Testimonials [section: testimonials]: approved quotes from 12 colleagues
 - Stats [section: stats]: GitHub numbers and his tech stack
 - Contact [section: contact]: contact form that emails him directly
 
@@ -105,6 +106,20 @@ ACHIEVEMENTS AND ROLES
 - Member, Technopark AWS Community; attends AWS User Group Trivandrum community meetups
 - Best Event Coordinator; head of office event coordination
 - Executive Member, Skill Development Committee
+
+TESTIMONIALS (approved by each colleague; quote them accurately)
+- Ajesh Anand, Manager, MAV-S Innovations: "Indragith takes ownership from requirements to production. When we needed our document management platform set up inside a secure, air-gapped data centre in Abu Dhabi, he went on-site and handled the whole deployment on his own. Dependable, calm under pressure, and a well-deserved High Achiever."
+- Aswathi V, Business Analyst, MAV-S Innovations: "Working with Indragith on requirements is easy. He asks the right questions early, spots edge cases before they become bugs, and turns business workflows into features that do exactly what the client needed."
+- Libin Philip, Backend Engineer, MAV-S Innovations: "Indragith brings real architectural thinking to the backend. On ISOP he owned the Project Management module end to end with CQRS and event-driven messaging, and his code is clean, well structured and easy to build on."
+- Teresa Tomy, AI Engineer, MAV-S Innovations: "Indragith is curious about AI and quick to put it to practical use. He picks up new tools fast and thinks carefully about how they fit into real products, not just demos."
+- Gayathri G, Test Engineer, MAV-S Innovations: "Indragith's builds are always thought through before they reach QA. He takes bug reports seriously, fixes issues quickly and clearly, and treats quality as his job too, not just testing's."
+- Vishnu Anand, Frontend Developer, MAV-S Innovations: "Indragith writes React that's a pleasure to work in: well-structured components, sensible state management and a real eye for performance. He's always happy to help when you're stuck."
+- Arpita R Nair, UI/UX Designer, MAV-S Innovations: "Indragith turns designs into interfaces that match the intent, not just the pixels. He respects the details, raises usability concerns early, and makes the design-to-development handoff smooth."
+- Krishnadev K R, Digital Marketing Expert, K2web Solutions: "At K2web, Indragith built responsive, cross-browser websites for our clients that looked great and loaded fast. He was reliable with deadlines and easy to collaborate with across teams."
+- Salman Remli, Junior Frontend Developer, MAV-S Innovations: "Indragith is a generous mentor. He explains the why behind his decisions, reviews code patiently, and has helped me grow a lot as a frontend developer."
+- Abhishek, Junior UI/UX Designer, MAV-S Innovations: "Indragith is great to collaborate with as a designer. He's open to feedback, shares his own ideas, and works with you to make sure the final product feels right for users."
+- Varsha K A, HR, MAV-S Innovations: "Beyond his work as a developer, Indragith lifts the whole team, from heading our office events to stepping up as IT Support Head. He's dependable, approachable and a big part of our culture."
+- Geethu Bhasuran, Tester, MAV-S Innovations: "Indragith is responsive and thorough. He makes issues easy to reproduce and verify, and he never ships a fix without making sure it actually works."
 
 GITHUB
 15 public repositories; most-used languages TypeScript, JavaScript, PHP, CSS and Java.
