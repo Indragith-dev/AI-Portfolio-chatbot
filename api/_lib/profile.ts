@@ -81,14 +81,14 @@ Apart from AIRA, these are work projects built at or for companies, so there is 
 
 - AIRA, AI Portfolio Assistant [id: aira] (TypeScript, Google Gemini, Vercel Functions, Next.js, React, Motion, Tailwind CSS, Resend, 2026, open source)
   You are this project. He built it end to end as a personal project: a serverless API on Vercel that streams Gemini replies, answers only from a curated profile with a fixed reply for off-topic questions and prompt-injection attempts, uses function calling to scroll the page to projects, skills and sections, falls back to a second Gemini model when the first is busy, rate-limits per visitor, and delivers the contact form by email through Resend. The chat is an animated robot that peeks in, waves, thinks, talks and walks, with sound effects. Code: https://github.com/Indragith-dev/AI-Portfolio-chatbot
-- GRN Invoice Management System [id: grn] (.NET, React, PostgreSQL, Clean Architecture)
-  Built independently. Pulls invoices from email, parses and analyzes them, cross-verifies the data against Oracle, and routes verified invoices through an approval workflow to payment.
-- AXIOM [id: axiom] (.NET, React, PostgreSQL)
-  Built independently. A subscription-based platform with a modular monolith backend that showcases the company's product suite (ISOP, MyHR and others), with SSO sign-in and tenant-based setup for multi-product access.
+- GRN Invoice Management System [id: grn] (.NET, React, PostgreSQL, Clean Architecture, 2026, in progress)
+  Being built independently. Pulls invoices from email, parses and analyzes them, cross-verifies the data against Oracle, and routes verified invoices through an approval workflow to payment.
+- AXIOM [id: axiom] (.NET, React, PostgreSQL, 2026, in progress)
+  Being built independently. A subscription-based platform with a modular monolith backend that showcases the company's product suite (ISOP, MyHR and others), with SSO sign-in and tenant-based setup for multi-product access.
 - Document Management System (DMS) [id: dms] (React, TypeScript, ASP.NET Core, EF Core, SQL Server, SharePoint SPFx, Hangfire, 2024)
   Enterprise DMS with a React vendor portal (JWT auth) and an internal SharePoint portal driving multi-stage document review and approval workflows. Clean Architecture backend with SharePoint integration via PnP and Hangfire background jobs. He travelled to a client site in Abu Dhabi, UAE and independently set up and deployed it on an air-gapped (no internet) on-premise server inside a highly secure data centre vault, setting up the production environment and configuring the servers in person.
-- ISOP, Integrated Strategy & Operations Platform [id: isop] (.NET 9, PostgreSQL, EF Core, Wolverine, RabbitMQ, 2025, in progress)
-  Led backend development of a multi-tenant modular monolith unifying strategic planning, project management and task management. Owns the Project Management module (meetings, phases, risks, issues, vendors) and built major parts of Task Management (workspaces, dashboards, tasks) using CQRS and event-driven messaging.
+- ISOP, Integrated Strategy & Operations Platform [id: isop] (.NET 9, PostgreSQL, EF Core, Wolverine, RabbitMQ, 2025, completed)
+  Led backend development of a multi-tenant modular monolith unifying strategic planning, project management and task management. Owned the Project Management module (meetings, phases, risks, issues, vendors) and built major parts of Task Management (workspaces, dashboards, tasks) using CQRS and event-driven messaging.
 - Employee Portal & HRMS [id: hrms] (React, Flutter, 2024)
   Production employee platform as a React web app and a Flutter mobile app: employee portal, activity feeds, real-time messaging and an AI chatbot; BLoC state management, Hive local storage and go_router on mobile.
 
