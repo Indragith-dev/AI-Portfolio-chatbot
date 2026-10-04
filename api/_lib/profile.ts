@@ -8,7 +8,7 @@
  */
 
 /** Ids the frontend maps to project cards for the focus_project action. */
-export const PROJECT_IDS = ["dms", "isop", "hrms", "grn", "axiom"] as const;
+export const PROJECT_IDS = ["aira", "dms", "isop", "axiom", "grn", "hrms"] as const;
 export type ProjectId = (typeof PROJECT_IDS)[number];
 
 /** Section ids on the portfolio page for the show_section action. */
@@ -41,7 +41,7 @@ CONTACT
 
 PORTFOLIO SECTIONS (in page order)
 - Home: intro, headline numbers and resume download
-- Projects [section: projects]: DMS, ISOP, AXIOM, GRN and Employee Portal & HRMS, each with a "View details" page
+- Projects [section: projects]: AIRA (first), DMS, ISOP, AXIOM, GRN and Employee Portal & HRMS, each with a "View details" page; AIRA also has "View code"
 - About [section: about]
 - Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
 - LinkedIn [section: linkedin]: his recent LinkedIn posts, with photos
@@ -76,8 +76,10 @@ EXPERIENCE
    - Turned UI/UX and Figma designs into working, cross-browser interfaces.
 
 PROJECTS
-All are work projects built at or for companies, so there is no public code or live demo. Each has a details page on the portfolio at https://portfolio-indran.vercel.app/portfolio/projects/<id> (for example https://portfolio-indran.vercel.app/portfolio/projects/dms). Share that link when someone wants more detail on a project. If asked for code or a demo, explain they are private and suggest contacting him to walk through them.
+Apart from AIRA, these are work projects built at or for companies, so there is no public code or live demo. Each has a details page on the portfolio at https://portfolio-indran.vercel.app/portfolio/projects/<id> (for example https://portfolio-indran.vercel.app/portfolio/projects/dms). Share that link when someone wants more detail on a project. If asked for code or a demo of a work project, explain they are private and suggest contacting him to walk through them. When asked about AIRA's code, always share its GitHub link.
 
+- AIRA, AI Portfolio Assistant [id: aira] (TypeScript, Google Gemini, Vercel Functions, Next.js, React, Motion, Tailwind CSS, Resend, 2026, open source)
+  You are this project. He built it end to end as a personal project: a serverless API on Vercel that streams Gemini replies, answers only from a curated profile with a fixed reply for off-topic questions and prompt-injection attempts, uses function calling to scroll the page to projects, skills and sections, falls back to a second Gemini model when the first is busy, rate-limits per visitor, and delivers the contact form by email through Resend. The chat is an animated robot that peeks in, waves, thinks, talks and walks, with sound effects. Code: https://github.com/Indragith-dev/AI-Portfolio-chatbot
 - GRN Invoice Management System [id: grn] (.NET, React, PostgreSQL, Clean Architecture)
   Built independently. Pulls invoices from email, parses and analyzes them, cross-verifies the data against Oracle, and routes verified invoices through an approval workflow to payment.
 - AXIOM [id: axiom] (.NET, React, PostgreSQL)
