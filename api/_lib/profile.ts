@@ -42,9 +42,9 @@ CONTACT
 PORTFOLIO SECTIONS (in page order)
 - Home: intro, headline numbers and resume download
 - Projects [section: projects]: DMS, ISOP and Employee Portal & HRMS
-- Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
-- LinkedIn [section: linkedin]: his recent LinkedIn posts
 - About [section: about]
+- Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
+- LinkedIn [section: linkedin]: his recent LinkedIn posts, with photos
 - Stats [section: stats]: GitHub numbers and his tech stack
 - Contact [section: contact]: contact form that emails him directly
 
@@ -96,7 +96,7 @@ CERTIFICATIONS
 - Google Cloud Fundamentals, Coursera (2020)
 
 ACHIEVEMENTS AND ROLES
-- High Achiever Award, MAV-S Innovations (2025): recognised for delivering production-ready software across the company's enterprise projects, presented with a 5,000 rupee cash award. A photo of him receiving it is in the Awards section of the portfolio. In his LinkedIn post about it he thanked his Founder & Lead, Minhaj Raheem, and his Manager, Ajesh Anand, for their guidance and mentorship, and his team for its support.
+- High Achiever Award, MAV-S Innovations (2025): recognised for delivering production-ready software across the company's enterprise projects. A photo of him receiving it is in the Awards section of the portfolio. In his LinkedIn post about it he thanked his Founder & Lead, Minhaj Raheem, and his Manager, Ajesh Anand, for their guidance and mentorship, and his team for its support.
 - IT Support Head, MAV-S Innovations
 - Member, Technopark AWS Community
 - Best Event Coordinator; head of office event coordination
@@ -108,9 +108,9 @@ GITHUB
 LINKEDIN
 Headline: Software Developer @ MAV-S Innovations | React.js | ASP.NET Core | TypeScript | Full Stack Development.
 Recent posts (all shown in the LinkedIn section of the portfolio):
-1. High Achiever Award (around January 2026): shared that he received the award from MAV-S Innovations, said it motivates him to keep pushing his limits as a software engineer, and thanked his leadership and team.
-2. Abu Dhabi deployment (around August 2026): visited Abu Dhabi, UAE to deploy a project his team built for a client inside a highly secure data centre vault, setting up the production environment and configuring the servers. Called it valuable hands-on exposure to enterprise deployment in a secure data centre, and thanked the MAV-S founders and his manager for the opportunity.
-3. "Planning, Collaboration & Delivery: The Agile Mindset" (around July 2026): believes good software starts with collaboration and shared understanding before code. Sees Planning Poker as a way for the team to discuss requirements, uncover complexity and risks, and agree on an approach, not just estimate story points. Enjoys the whole lifecycle, from business requirements and sprint planning to scalable backend services and intuitive frontends, delivered incrementally. Agile has strengthened his ability to collaborate with cross-functional teams, take part in sprint planning, estimation and backlog discussions, break complex requirements into deliverable tasks, adapt to changing priorities while keeping quality, and keep learning every sprint. His takeaway: great software is built through collaboration, not in isolation.
+1. High Achiever Award (January 2026): shared that he received the award from MAV-S Innovations, said it motivates him to keep pushing his limits as a software engineer, and thanked his leadership and team.
+2. Abu Dhabi deployment (July 2026): visited Abu Dhabi, UAE to deploy a project his team built for a client inside a highly secure data centre vault, setting up the production environment and configuring the servers. Called it valuable hands-on exposure to enterprise deployment in a secure data centre, and thanked the MAV-S founders and his manager for the opportunity.
+3. "Planning, Collaboration & Delivery: The Agile Mindset" (June 2026): believes good software starts with collaboration and shared understanding before code. Sees Planning Poker as a way for the team to discuss requirements, uncover complexity and risks, and agree on an approach, not just estimate story points. Enjoys the whole lifecycle, from business requirements and sprint planning to scalable backend services and intuitive frontends, delivered incrementally. Agile has strengthened his ability to collaborate with cross-functional teams, take part in sprint planning, estimation and backlog discussions, break complex requirements into deliverable tasks, adapt to changing priorities while keeping quality, and keep learning every sprint. His takeaway: great software is built through collaboration, not in isolation.
 `.trim();
 
 export const SYSTEM_PROMPT = `
