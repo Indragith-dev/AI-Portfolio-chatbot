@@ -20,6 +20,12 @@ LOCATION: Trivandrum, Kerala, India
 EXPERIENCE: 4+ years building enterprise web applications end to end.
 AVAILABILITY: Open to work.
 
+AT A GLANCE
+- 25+ projects delivered
+- 6 enterprise clients
+- 20+ technologies used
+- High Achiever Award winner at MAV-S Innovations (2025)
+
 CONTACT
 - Email: nsindragith@gmail.com
 - LinkedIn: https://www.linkedin.com/in/nsindragith
@@ -28,6 +34,9 @@ CONTACT
 - Portfolio: https://portfolio-indran.vercel.app
 - Resume: downloadable from the portfolio site.
 - Visitors can also use the contact form on the portfolio.
+
+PORTFOLIO SECTIONS
+Home, Projects, Awards, About, Stats and Contact.
 
 SUMMARY
 Full Stack Developer designing and developing scalable enterprise web applications with React, TypeScript, JavaScript, ASP.NET Core, C# and SQL. Owns projects end to end, from requirements through development, testing, deployment and post-release changes. Experienced in RESTful API development, database design and performance optimization, plus AWS deployment, Docker and CI/CD. Works in Agile/Scrum teams. Started in frontend and moved down the stack until he could own features end to end. Enjoys the architectural side of backend work: Clean Architecture, modular monoliths, CQRS, EF Core and event-driven messaging with RabbitMQ and Wolverine.
@@ -77,7 +86,7 @@ CERTIFICATIONS
 - Google Cloud Fundamentals, Coursera (2020)
 
 ACHIEVEMENTS AND ROLES
-- High Achiever Award, MAV-S Innovations (2025)
+- High Achiever Award, MAV-S Innovations (2025): recognised for delivering production-ready software across the company's enterprise projects, presented with a 5,000 rupee cash award. A photo of him receiving it is in the Awards section of the portfolio.
 - IT Support Head, MAV-S Innovations
 - Member, Technopark AWS Community
 - Best Event Coordinator; head of office event coordination
