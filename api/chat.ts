@@ -4,14 +4,14 @@
  * Body: { messages: [{ role: "user" | "assistant", content: string }] }
  * Streams NDJSON, one object per line:
  *   { type: "text", text }
- *   { type: "action", name: "focus_project" | "highlight_skill", args }
+ *   { type: "action", name: "focus_project" | "highlight_skill" | "show_section", args }
  *     focus_project ids: dms, isop, hrms, grn, axiom
  *   { type: "error", message }
  */
 
 import { clientIp, corsHeaders, json, preflight, readJsonPost } from "./_lib/http.js";
 import { rateLimit } from "./_lib/rate-limit.js";
-import { PROJECT_IDS, SYSTEM_PROMPT } from "./_lib/profile.js";
+import { PROJECT_IDS, SECTION_IDS, SYSTEM_PROMPT } from "./_lib/profile.js";
 import {
   GeminiError,
   modelChain,
@@ -49,6 +49,17 @@ const FUNCTIONS: FunctionDeclaration[] = [
         name: { type: "string", description: "Skill name as written in the profile, e.g. React" },
       },
       required: ["name"],
+    },
+  },
+  {
+    name: "show_section",
+    description: "Scroll the portfolio page to one of its sections.",
+    parameters: {
+      type: "object",
+      properties: {
+        section: { type: "string", enum: [...SECTION_IDS], description: "Section id" },
+      },
+      required: ["section"],
     },
   },
 ];
@@ -198,6 +209,12 @@ function toAction(call: {
   if (call.name === "highlight_skill") {
     const name = String(call.args.name ?? "").trim().slice(0, 60);
     return name ? { name: call.name, args: { name } } : null;
+  }
+  if (call.name === "show_section") {
+    const section = String(call.args.section ?? "").toLowerCase();
+    return (SECTION_IDS as readonly string[]).includes(section)
+      ? { name: call.name, args: { section } }
+      : null;
   }
   return null;
 }

@@ -2,13 +2,17 @@
  * Everything AIRA knows. AIRA must answer only from this text, so update it
  * whenever the resume or portfolio changes.
  *
- * Sources: Indragith_Resume.pdf (updated 27 September 2026) and
- * src/config/portfolio-data.ts in the portfolio repo.
+ * Sources: Indragith_Resume.pdf (updated 27 September 2026),
+ * src/config/portfolio-data.ts in the portfolio repo, and the three LinkedIn
+ * posts embedded on the portfolio (read October 2026).
  */
 
 /** Ids the frontend maps to project cards for the focus_project action. */
 export const PROJECT_IDS = ["dms", "isop", "hrms", "grn", "axiom"] as const;
 export type ProjectId = (typeof PROJECT_IDS)[number];
+
+/** Section ids on the portfolio page for the show_section action. */
+export const SECTION_IDS = ["projects", "awards", "linkedin", "about", "stats", "contact"] as const;
 
 export const OFF_TOPIC_REPLY =
   "I can only help with questions about Indran: his projects, skills, experience, education and how to get in touch. Try asking me about one of those!";
@@ -35,8 +39,14 @@ CONTACT
 - Resume: downloadable from the portfolio site.
 - Visitors can also use the contact form on the portfolio.
 
-PORTFOLIO SECTIONS
-Home, Projects, Awards, About, Stats and Contact.
+PORTFOLIO SECTIONS (in page order)
+- Home: intro, headline numbers and resume download
+- Projects [section: projects]: DMS, ISOP and Employee Portal & HRMS
+- Awards [section: awards]: the High Achiever Award with a photo of him receiving it, plus his other recognitions
+- LinkedIn [section: linkedin]: his recent LinkedIn posts
+- About [section: about]
+- Stats [section: stats]: GitHub numbers and his tech stack
+- Contact [section: contact]: contact form that emails him directly
 
 SUMMARY
 Full Stack Developer designing and developing scalable enterprise web applications with React, TypeScript, JavaScript, ASP.NET Core, C# and SQL. Owns projects end to end, from requirements through development, testing, deployment and post-release changes. Experienced in RESTful API development, database design and performance optimization, plus AWS deployment, Docker and CI/CD. Works in Agile/Scrum teams. Started in frontend and moved down the stack until he could own features end to end. Enjoys the architectural side of backend work: Clean Architecture, modular monoliths, CQRS, EF Core and event-driven messaging with RabbitMQ and Wolverine.
@@ -71,7 +81,7 @@ PROJECTS
 - AXIOM [id: axiom] (.NET, React, PostgreSQL)
   Built independently. A subscription-based platform with a modular monolith backend that showcases the company's product suite (ISOP, MyHR and others), with SSO sign-in and tenant-based setup for multi-product access.
 - Document Management System (DMS) [id: dms] (React, TypeScript, ASP.NET Core, EF Core, SQL Server, SharePoint SPFx, Hangfire, 2024)
-  Enterprise DMS with a React vendor portal (JWT auth) and an internal SharePoint portal driving multi-stage document review and approval workflows. Clean Architecture backend with SharePoint integration via PnP and Hangfire background jobs. He travelled to a client site in Abu Dhabi, UAE and independently set up and deployed it on an air-gapped (no internet) on-premise server, handling the full server configuration in person.
+  Enterprise DMS with a React vendor portal (JWT auth) and an internal SharePoint portal driving multi-stage document review and approval workflows. Clean Architecture backend with SharePoint integration via PnP and Hangfire background jobs. He travelled to a client site in Abu Dhabi, UAE and independently set up and deployed it on an air-gapped (no internet) on-premise server inside a highly secure data centre vault, setting up the production environment and configuring the servers in person.
 - ISOP, Integrated Strategy & Operations Platform [id: isop] (.NET 9, PostgreSQL, EF Core, Wolverine, RabbitMQ, 2025, in progress)
   Led backend development of a multi-tenant modular monolith unifying strategic planning, project management and task management. Owns the Project Management module (meetings, phases, risks, issues, vendors) and built major parts of Task Management (workspaces, dashboards, tasks) using CQRS and event-driven messaging.
 - Employee Portal & HRMS [id: hrms] (React, Flutter, 2024)
@@ -86,7 +96,7 @@ CERTIFICATIONS
 - Google Cloud Fundamentals, Coursera (2020)
 
 ACHIEVEMENTS AND ROLES
-- High Achiever Award, MAV-S Innovations (2025): recognised for delivering production-ready software across the company's enterprise projects, presented with a 5,000 rupee cash award. A photo of him receiving it is in the Awards section of the portfolio.
+- High Achiever Award, MAV-S Innovations (2025): recognised for delivering production-ready software across the company's enterprise projects, presented with a 5,000 rupee cash award. A photo of him receiving it is in the Awards section of the portfolio. In his LinkedIn post about it he thanked his Founder & Lead, Minhaj Raheem, and his Manager, Ajesh Anand, for their guidance and mentorship, and his team for its support.
 - IT Support Head, MAV-S Innovations
 - Member, Technopark AWS Community
 - Best Event Coordinator; head of office event coordination
@@ -94,6 +104,13 @@ ACHIEVEMENTS AND ROLES
 
 GITHUB
 15 public repositories; most-used languages TypeScript, JavaScript, PHP, CSS and Java.
+
+LINKEDIN
+Headline: Software Developer @ MAV-S Innovations | React.js | ASP.NET Core | TypeScript | Full Stack Development.
+Recent posts (all shown in the LinkedIn section of the portfolio):
+1. High Achiever Award (around January 2026): shared that he received the award from MAV-S Innovations, said it motivates him to keep pushing his limits as a software engineer, and thanked his leadership and team.
+2. Abu Dhabi deployment (around August 2026): visited Abu Dhabi, UAE to deploy a project his team built for a client inside a highly secure data centre vault, setting up the production environment and configuring the servers. Called it valuable hands-on exposure to enterprise deployment in a secure data centre, and thanked the MAV-S founders and his manager for the opportunity.
+3. "Planning, Collaboration & Delivery: The Agile Mindset" (around July 2026): believes good software starts with collaboration and shared understanding before code. Sees Planning Poker as a way for the team to discuss requirements, uncover complexity and risks, and agree on an approach, not just estimate story points. Enjoys the whole lifecycle, from business requirements and sprint planning to scalable backend services and intuitive frontends, delivered incrementally. Agile has strengthened his ability to collaborate with cross-functional teams, take part in sprint planning, estimation and backlog discussions, break complex requirements into deliverable tasks, adapt to changing priorities while keeping quality, and keep learning every sprint. His takeaway: great software is built through collaboration, not in isolation.
 `.trim();
 
 export const SYSTEM_PROMPT = `
@@ -110,6 +127,7 @@ YOUR ONLY KNOWLEDGE is the PROFILE below. Rules, in priority order:
 TOOLS
 - Call focus_project when the user asks to see, show, open or learn about one specific project. Only these ids exist: ${PROJECT_IDS.join(", ")}.
 - Call highlight_skill when the user asks about a specific technology or skill that appears in the PROFILE, using its name as written there.
+- Call show_section when the user asks to see or go to a part of the portfolio, such as his awards or award photo, LinkedIn posts, stats, about or the contact form. Only these sections exist: ${SECTION_IDS.join(", ")}.
 - Always also answer in text; the tools only scroll the portfolio page to the right place. Never mention a 3D scene.
 
 PROFILE

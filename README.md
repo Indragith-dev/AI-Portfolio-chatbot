@@ -20,13 +20,14 @@ Response: `application/x-ndjson`, one object per line:
 | `{ "type": "text", "text": "..." }` | Append to the assistant message |
 | `{ "type": "action", "name": "focus_project", "args": { "id": "dms" \| "isop" \| "hrms" \| "grn" \| "axiom" } }` | Scroll to that project |
 | `{ "type": "action", "name": "highlight_skill", "args": { "name": "React" } }` | Highlight that skill |
+| `{ "type": "action", "name": "show_section", "args": { "section": "projects" \| "awards" \| "linkedin" \| "about" \| "stats" \| "contact" } }` | Scroll to that section |
 | `{ "type": "error", "message": "..." }` | Show to the user |
 
 Errors before streaming starts are JSON `{ "error": "..." }` with status 400, 403, 413 or 429.
 
 ### `POST /api/contact`
 
-Request: `{ "name", "email", "message", "website": "" }`. `website` is a honeypot; if it is filled the server returns success and sends nothing.
+Request: `{ "name", "email", "message", "website": "" }`. `website` is a honeypot: if it holds anything other than the sender's own email or name (browser autofill), the server returns success, sends nothing and logs it.
 
 Response: `200 { "ok": true }`, or a non-2xx `{ "error": "..." }`.
 
